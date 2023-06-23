@@ -1,0 +1,36 @@
+<h2>{{titulo}}</h2>
+<hr>
+
+<div *ngIf="!productos">
+    Cargando listado de productos
+</div>
+
+
+<div *ngIf="productos">
+    <div class="row">
+        <div class="col-lg-3" *ngFor="let producto of productos">
+            <div class="img-thumbnail">
+                <div *ngIf="producto.imagen">
+                    <img src="http://localhost/curso-angular4-backend/uploads/{{producto.imagen}}"
+                        class="producto_imagen" alt="">
+                </div>
+                <div *ngIf="!producto.imagen">
+                    <div class="img_relleno"></div>
+                </div>
+                <div class="caption-top"> </div>
+                <strong>{{producto.nombre}}</strong>
+                <p>{{producto.precio}} €</p>
+                <div class="botones" *ngIf="confirmado != producto.id">
+                    <a [routerLink]="['/producto', producto.id]" class="btn btn-md btn-primary">Ver</a>
+                    <a [routerLink]="['/edit-producto', producto.id]" class="btn btn-md btn-warning">Editar</a>
+                    <a (click)="borrarConfirm(producto.id)" class="btn btn-md btn-danger">Borrar</a>
+                </div>
+                <div class="seguro" *ngIf="confirmado == producto.id">
+                    <p>Estas seguro de querer borrar este producto?</p>
+                    <a (click)="onDeleteProducto(producto.id)" class="btn btn-md btn-danger">Quiero eliminarlo</a>
+                    <a (click)="cancelarConfirm()" class="btn btn-md btn-warning">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
