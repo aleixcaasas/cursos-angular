@@ -1,0 +1,24 @@
+<h4>{{titulo}}</h4>
+
+<div *ngIf="administrador; then admin else noAdmin"></div>
+
+<ng-template #admin>
+	<button (click)="cambiar(false)">Cambiar</button>
+	<strong style="background:yellow;">Eres el administador de la webapp</strong>
+</ng-template>
+
+<ng-template #noAdmin>
+	<button (click)="cambiar(true)">Cambiar</button>
+	<strong style="background:red;color:white;">NO ERES EL administador de la webapp</strong>
+</ng-template>
+
+<hr>
+
+<componente-hijo [propiedad_uno]="dato_externo" [p2]="identity" (desde_el_hijo)="recibirDatos($event)">
+</componente-hijo>
+
+<div *ngIf="datos_del_hijo">
+	<h1>{{datos_del_hijo.nombre}}</h1>
+	<h1>{{datos_del_hijo.web}}</h1>
+	<h1>{{datos_del_hijo.twitter}}</h1>
+</div>
