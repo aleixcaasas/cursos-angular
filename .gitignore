@@ -1,0 +1,13 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Node
+/curs-angular-webapp/node_modules
+/curs-angular-webapp/.angular
+/curs-angular-webapp/.vscode
+/curs-angular-webapp/.editorconfig
+
+
+/curs-angular4/node_modules
+/curs-angular4/.angular
+/curs-angular4/.vscode
+/curs-angular4/.editorconfig
